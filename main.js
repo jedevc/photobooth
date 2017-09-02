@@ -3,35 +3,27 @@ window.addEventListener('load', () => {
 	let video = document.getElementById('camera')
 	let captureButton = document.getElementById('capture')
 
-	let showcase = document.getElementById('showcase')
-	let screenshot = document.getElementById('screenshot')
-	let returnButton = document.getElementById('return')
-
 	let overlay = document.getElementById('overlay')
 
-	let camera = new Camera(video)
-	
-	showcase.style.display = 'none'
-	overlay.style.display = 'none'
+	let roll = document.getElementById('roll')
 
+	let camera = new Camera(video)
+
+	overlay.style.display = 'none'
 	captureButton.addEventListener('click', () => {
-		screenshot.src = camera.takePicture()
+		let thumb = document.createElement('img')
+		thumb.src = camera.takePicture()
+		thumb.style.height = '100%'
 
 		overlay.addEventListener('animationend', () => {
 			overlay.classList.remove('flash')
 			overlay.style.display = 'none'
+
+			roll.appendChild(thumb)
 		})
-		booth.style.display = 'none'
-		showcase.style.display = 'block'
 
 		overlay.style.display = 'block'
 		overlay.classList.add('flash')
-
-	})
-
-	returnButton.addEventListener('click', () => {
-		booth.style.display = 'block'
-		showcase.style.display = 'none'
 	})
 })
 

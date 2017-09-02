@@ -1,6 +1,8 @@
 * {
 	padding: 0;
 	margin: 0;
+
+	box-sizing: border-box;
 }
 
 body {
@@ -8,28 +10,56 @@ body {
 	height: 100vh;
 
 	background-color: slategrey;
+
+	display: flex;
+	flex-direction: column;
 }
 
-#main {
+#booth {
 	width: 100%;
-	height: 100%;
+	flex: 1;
 
 	position: relative;
 
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
-#booth, #showcase {
-	position: relative;
+button {
+	width: 25%;
+	display: block;
+	position: absolute;
+	bottom: 50px;
+}
 
-	border: 4px black solid;
+#roll {
+	width: 100%;
+	height: 100px;
+
+	padding: 10px;
+
+	border-top: 2px black solid;
+	background-color: white;
+}
+
+img {
+	border: 10px #FFFF55 solid;
+	border-radius: 5px;
+}
+
+img + img {
+	margin-left: 10px;
 }
 
 @keyframes flash {
-	0%, 100% { opacity: 0; }
-	50% { opacity: 1; }
+	0%, 100% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
 }
 
 #overlay {
@@ -41,22 +71,10 @@ body {
 	left: 0;
 
 	background-color: white;
+
 	opacity: 0;
 }
 
 #overlay.flash {
 	animation: flash 0.5s;
-}
-
-video, img {
-	display: block;
-}
-
-button {
-	width: 50%;
-
-	display: block;
-	position: absolute;
-	bottom: 30px;
-	transform: translate(+50%);
 }
