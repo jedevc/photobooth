@@ -9,18 +9,29 @@ window.addEventListener('load', () => {
 
 	let camera = new Camera(video)
 
+	let count = 1
+
 	overlay.style.display = 'none'
 	captureButton.addEventListener('click', () => {
-		let thumb = document.createElement('img')
-		thumb.src = camera.takePicture()
-		thumb.style.height = '100%'
+		let img = document.createElement('img')
+		img.src = camera.takePicture()
+
+		let thumb = document.createElement('a')
+		thumb.classList.add('thumbnail')
+		thumb.href = img.src 
+		thumb.download = `webcam${count}.png`
+		thumb.appendChild(img)
+
+		count++
 
 		overlay.addEventListener('animationend', () => {
 			overlay.classList.remove('flash')
 			overlay.style.display = 'none'
 
 			roll.appendChild(thumb)
-		})
+			roll.scrollLeft = img.x
+			roll.focus()
+		}, {once: true})
 
 		overlay.style.display = 'block'
 		overlay.classList.add('flash')

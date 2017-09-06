@@ -5,6 +5,10 @@
 	box-sizing: border-box;
 }
 
+*:focus {
+	outline: none;
+}
+
 body {
 	width: 100vw;
 	height: 100vh;
@@ -42,14 +46,33 @@ button {
 
 	border-top: 2px black solid;
 	background-color: white;
+
+	white-space: nowrap;
+	overflow-x: scroll;
+	overflow-y: hidden;
+
+	/* No scrollbar (webkit requires a seperate selector) */
+	-ms-overflow-style: none;  /* IE 10+ */
+    overflow: -moz-scrollbars-none;  /* Firefox */
 }
 
-img {
+#roll::-webkit-scrollbar { 
+    display: none; /* Safari and Chrome */
+}
+
+.thumbnail {
+	display: inline-block;
+	height: 100%;
+
 	border: 10px #FFFF55 solid;
 	border-radius: 5px;
 }
 
-img + img {
+.thumbnail img {
+	height: 100%;
+}
+
+.thumbnail + .thumbnail {
 	margin-left: 10px;
 }
 
