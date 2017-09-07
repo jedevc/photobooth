@@ -1,28 +1,26 @@
 window.addEventListener('load', () => {
 	let booth = document.getElementById('booth')
-	let video = document.getElementById('camera')
-	let captureButton = document.getElementById('capture')
+	let capture = document.getElementById('capture')
+	let camera = new Camera(document.getElementById('camera'))
 
 	let overlay = document.getElementById('overlay')
 
 	let roll = document.getElementById('roll')
 
-	let camera = new Camera(video)
-
-	let count = 1
+	let pictureCount = 1
 
 	overlay.style.display = 'none'
-	captureButton.addEventListener('click', () => {
+	capture.addEventListener('click', () => {
 		let img = document.createElement('img')
 		img.src = camera.takePicture()
 
 		let thumb = document.createElement('a')
 		thumb.classList.add('thumbnail')
 		thumb.href = img.src 
-		thumb.download = `webcam${count}.png`
+		thumb.download = `webcam${pictureCount}.png`
 		thumb.appendChild(img)
 
-		count++
+		pictureCount++
 
 		overlay.addEventListener('animationend', () => {
 			overlay.classList.remove('flash')
