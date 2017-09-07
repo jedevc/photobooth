@@ -51,7 +51,7 @@ button {
 	overflow-x: scroll;
 	overflow-y: hidden;
 
-	/* No scrollbar (webkit requires a seperate selector) */
+	/* no scrollbar (webkit requires a seperate selector) */
 	-ms-overflow-style: none;  /* IE 10+ */
     overflow: -moz-scrollbars-none;  /* Firefox */
 }
