@@ -13,10 +13,11 @@ body {
 	width: 100vw;
 	height: 100vh;
 
-	background-color: slategrey;
-
 	display: flex;
 	flex-direction: column;
+
+	/* background pattern from Subtle Patterns */
+	background: url("dark-triangles.png");
 }
 
 #booth {
@@ -34,6 +35,7 @@ body {
 button {
 	width: 25%;
 	display: block;
+
 	position: absolute;
 	bottom: 50px;
 }
@@ -43,9 +45,6 @@ button {
 	height: 100px;
 
 	padding: 10px;
-
-	border-top: 2px black solid;
-	background-color: white;
 
 	white-space: nowrap;
 	overflow-x: scroll;
@@ -60,16 +59,51 @@ button {
     display: none; /* Safari and Chrome */
 }
 
-.thumbnail {
-	display: inline-block;
-	height: 100%;
+@keyframes fadein {
+	0% {
+		opacity: 0;
+		transform: translateY(75%);
+	}
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
 
-	border: 10px #FFFF55 solid;
-	border-radius: 5px;
+.thumbnail {
+	height: 100%;
+	display: inline-block;
+
+	animation: fadein 0.5s ease;
+
+	position: relative;
 }
 
 .thumbnail img {
 	height: 100%;
+	border-radius: 5px;
+}
+
+.thumbnail::after {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	content: '\2193'; /* unicode downwards arrow (U+2193) */
+	font-size: 70px;
+	text-align: center;
+	color: #aaa;
+
+	background-color: #000;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.thumbnail:hover::after {
+	opacity: 0.5;
 }
 
 .thumbnail + .thumbnail {
@@ -94,7 +128,6 @@ button {
 	left: 0;
 
 	background-color: white;
-
 	opacity: 0;
 }
 
