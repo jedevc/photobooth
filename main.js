@@ -4,13 +4,12 @@ window.addEventListener('load', () => {
 	let camera = new Camera(document.getElementById('camera'))
 
 	let overlay = document.getElementById('overlay')
+	overlay.style.display = 'none'
 
 	let roll = document.getElementById('roll')
-
 	let pictureCount = 1
 
-	overlay.style.display = 'none'
-	capture.addEventListener('click', () => {
+	function takePicture() {
 		let img = document.createElement('img')
 		img.src = camera.takePicture()
 
@@ -32,6 +31,13 @@ window.addEventListener('load', () => {
 
 		overlay.style.display = 'block'
 		overlay.classList.add('flash')
+	}
+
+	capture.addEventListener('click', takePicture)
+	window.addEventListener('keypress', (event) => {
+		if (event.key == ' ' || event.key == 'Enter') {
+			takePicture()
+		}
 	})
 
 	// keep focus on camera roll to allow keyboard scrolling
