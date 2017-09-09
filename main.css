@@ -20,19 +20,54 @@ body {
 	background: url("dark-triangles.png");
 }
 
-#booth {
+#main {
 	width: 100%;
 	flex: 1;
 
+	display: flex;
+	align-items: center;
+}
+
+#booth {
+	flex: 1;
+	order: 0;
+
 	position: relative;
 
+	/* horizontally center children */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 }
 
-button {
+#preview1 {
+	order: -1;
+	margin: 25px;
+}
+
+#preview1 video {
+	width: 100%;
+}
+
+#preview2 {
+	order: 1;
+	margin: 25px;
+}
+
+#preview2 video {
+	width: 100%;
+}
+
+#caption {
+	width: 25%;
+	text-align: center;
+	display: block;
+
+	position: absolute;
+	top: 50px;
+}
+
+#capture {
 	width: 25%;
 	display: block;
 
@@ -46,6 +81,7 @@ button {
 
 	padding: 10px;
 
+	/* correct scrolling */
 	white-space: nowrap;
 	overflow-x: scroll;
 	overflow-y: hidden;
