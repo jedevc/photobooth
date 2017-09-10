@@ -53,9 +53,9 @@ window.addEventListener('load', () => {
 	})
 
 	window.addEventListener('keyup', (event) => {
-		if (event.key == ' ' || event.key == 'Enter') {
+		if (event.key == 'Enter') {
 			takePicture()
-		} else if (event.key == 'Tab') {
+		} else if (event.key == ' ') {
 			filters.update(1)
 			caption.innerText = filters.current()
 		}
