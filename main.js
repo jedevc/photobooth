@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
 			overlay.style.display = 'none'
 
 			roll.appendChild(thumb)
-			roll.scrollLeft = img.x
+			roll.scrollLeft = roll.scrollWidth
 		}, {once: true})
 		overlay.style.display = 'block'
 		overlay.classList.add('flash')
@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
 	// keep focus on camera roll to allow keyboard scrolling
 	roll.focus()
 	roll.addEventListener('blur', () => {
-		roll.focus()
+		setTimeout(() => roll.focus(), 0)
 	})
 })
 

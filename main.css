@@ -75,11 +75,13 @@ body {
 	bottom: 50px;
 }
 
+#footer {
+	padding: 10px;
+}
+
 #roll {
 	width: 100%;
 	height: 100px;
-
-	padding: 10px;
 
 	/* correct scrolling */
 	white-space: nowrap;
