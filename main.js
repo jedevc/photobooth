@@ -126,6 +126,11 @@ const filters = [
 	'sepia(100%)',
 	'brightness(50%)',
 	'brightness(200%)',
+	'saturate(200%)',
+	'contrast(200%)',
+	'hue-rotate(90deg)',
+	'hue-rotate(180deg)',
+	'hue-rotate(270deg)',
 	'invert(100%)'
 ]
 
